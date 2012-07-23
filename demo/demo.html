@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      cursor: pointer;
+    }
+  
+    #ref {
+      width: 750px;
+      height: 250px;
+      border: 1px solid #e4e4e4;
+      position: relative;
+      margin: auto;
+    }
+
+    #header {
+      width: 100%;
+      height: 40px;
+      position: relative;
+    }
+
+    #plugin-by {
+      max-height: 100%;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    #dot {
+      max-height: 100%;
+      position: absolute;
+      right: 80px;
+      top: 20px;
+    }
+    
+    .ref-main {
+      width: 100%;
+      height: 170px;
+    }
+
+    .ref-center {
+      width: 630px;
+      height: 100%;
+      position: relative;
+    }
+    
+    #ref-footer {
+      width: 100%;
+      height: 40px;
+      text-align: right;
+    }
+
+    #view-all {
+      max-height: 100%;
+    }
+    
+    .badge {
+      width: 155px;
+      height: 100%;
+      float: left;
+    }
+    
+    .move {
+      width: 60px;
+      height: 100%;
+      text-align: center;
+      position: relative;
+    }
+    
+    .float-left {
+      float: left;
+    }
+    
+    .float-right {
+      float: right;
+    }
+
+    .inline {
+      display: inline-block;
+    }
+
+    .dir {
+      position: absolute;
+      top: 69px;
+    }
+
+    .right-line {
+      border-right: 1px solid gray;
+    }
+
+    .content {
+      width: 120px;
+      height: 140px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    }
+
+    .badge-img-wrapper {
+      text-align: center;
+      width: 100px;
+      height: 100px;
+    }
+
+    .badge-img {
+      width: 90%;
+    }
+
+    .badge-name {
+      width: 100%;
+      height: 40px;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery-ui-1.8.21.custom.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+      function badge(num, img, name, desc, location, duration) {
+        this.num = num;
+        this.img = img;
+        this.name = name;
+        this.desc = desc;
+        this.location = location;
+        this.duration = duration;
+      }
+    
+      var badges = [
+        new badge(0, "img/0.png", "sam", "ssac", "kw", "111"),
+        new badge(1, "img/1.png", "albert", "al", "abc", "123"),
+        new badge(2, "img/2.png", "tracey", "ma", "dsa", "123"),
+        new badge(3, "img/3.png", "test", "test", "aaa", "111")
+      ]
+      
+      function fillData(num) {
+        $("#detail-img").attr("src", badges[num].img)
+        $("#detail-name").text(badges[num].name);
+        $("#detail-desc").text(badges[num].desc);
+        $("#detail-location").text(badges[num].location);
+        $("#detail-duration").text(badges[num].duration);
+      }
+      
+      function clearData() {
+        $("#detail-desc").text("");
+        $("#detail-location").text("");
+        $("#detail-duration").text("");
+      }
+      
+      $("#detail").hide();
+      
+      $(".badge").click( function(){
+        $("#ref-center").hide();
+        $("#detail").show();
+        
+        var num = $(this).attr("data");
+        fillData(num);
+      });
+      
+      $("#detail").click( function() {
+        $("#detail").hide();
+        $("#ref-center").show();
+        clearData();
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="ref">
+
+    <div id="header">
+      <img id="plugin-by" src="plugin-by.png" />
+      <img id="dot" src="dot.png" />
+    </div>
+  
+    <div id="ref-main" class="ref-main">
+
+      <div id="ref-left" class="move float-left">
+        <img class="dir" src="plugin-left.png" />
+      </div>
+      
+      <div id="ref-center" class="ref-center float-left">
+
+        <div class="badge right-line" data="0">
+          <div class="content">
+            <div class="badge-img-wrapper">
+              <img class="badge-img" src="img/0.png" />
+            </div>
+            <div class="badge-name">
+              Albert
+            </div>
+          </div>
+        </div>
+        
+        <div class="badge right-line" data="1">
+          <div class="content">
+            <div class="badge-img-wrapper">
+              <img class="badge-img" src="img/1.png" />
+            </div>
+            <div class="badge-name">
+              Tracey
+            </div>
+          </div>
+        </div>
+        
+        <div class="badge right-line" data="2">
+          <div class="content">
+            <div class="badge-img-wrapper">
+              <img class="badge-img" src="img/2.png" />
+            </div>
+            <div class="badge-name">
+              Edward
+            </div>
+          </div>
+        </div>
+        
+        <div class="badge" data="3">
+          <div class="content">
+            <div class="badge-img-wrapper">
+              <img class="badge-img" src="img/3.png" />
+            </div>
+            <div class="badge-name">
+              Kif
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="detail" class="ref-center float-left">
+        <div id="detail-header" style="text-align: right">
+          click to return
+        </div>
+
+        <div class="float-left" style="width: 120px; text-align: center">
+          <img id="detail-img"/>
+        </div>
+
+        <div>Name: <span id="detail-name"></span></div>
+        <div>Desc: <span id="detail-desc"></span></div>
+        <div>Location: <span id="detail-location"></span></div>
+        <div>Duration: <span id="detail-duration"></span></div>
+      </div>
+      
+      <div id="ref-right" class="move float-left">
+        <img class="dir" src="plugin-right.png" />
+      </div>
+
+    </div>
+    
+    <div id="ref-footer">
+      <img id="view-all" src="view-all.png">
+    </div>
+    
+  </div>
+</body>
+</html>
