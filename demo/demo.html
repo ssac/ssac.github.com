@@ -209,7 +209,6 @@
     $(document).ready( function() {
       
       var lastRatio = 1;
-      
       function start() {
         // detect the orientation of user screen
         var orientation = window.orientation;
@@ -218,14 +217,14 @@
         //var ratio = 1;
         if (orientation == 90) {
           type = 1;
-          $(body).width(750);
-          $(body).height(250);
+          $("body").width(750);
+          $("body").height(250);
           //ratio = screen.availWidth / 750;
         }
         else if (orientation == 0) {
           type = 2;
-          $(body).width(250);
-          $(body).height(750);
+          $("body").width(250);
+          $("body").height(750);
           //ratio = screen.availHeight / 750;
         }
         
