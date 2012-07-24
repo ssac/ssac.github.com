@@ -6,28 +6,41 @@
       cursor: pointer;
     }
   
-    #ref {
+    .ref {
       width: 750px;
       height: 250px;
       border: 1px solid #e4e4e4;
       position: relative;
       margin: auto;
     }
+    
+    .ref-90 {
+      width: 250px;
+      height: 750px;
+      border: 1px solid #e4e4e4;
+      position: relative;
+      margin: auto;
+    }
 
-    #header {
+    .header {
       width: 100%;
       height: 40px;
       position: relative;
     }
+    
+    .header-90 {
+      width: 100%;
+      
+    }
 
-    #plugin-by {
+    .plugin-by {
       max-height: 100%;
       position: absolute;
       top: 10px;
       left: 10px;
     }
 
-    #dot {
+    .dot {
       max-height: 100%;
       position: absolute;
       right: 80px;
@@ -45,13 +58,13 @@
       position: relative;
     }
     
-    #ref-footer {
+    .ref-footer {
       width: 100%;
       height: 40px;
       text-align: right;
     }
 
-    #view-all {
+    .view-all {
       max-height: 100%;
     }
     
@@ -112,12 +125,80 @@
       height: 40px;
       text-align: center;
     }
+    
+    .detail-header {
+      text-align: right;
+    }
+    
+    .detail-img-wrapper {
+      width: 120px;
+      text-align: center;
+    }
+    
+    
   </style>
   <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="jquery.mobile-1.1.1.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.8.21.custom.min.js"></script>
   <script type="text/javascript">
     $(document).ready( function() {
+    
+      var arr_id = [
+        'ref', 'header', 'plugin-by', 'dot', 'ref-main', 'ref-left', 'dir', 'ref-center', 'detail', 'detail-header', 'detail-img', 
+        'detail-name', 'detail-desc', 'detail-location', 'detail-duration', 'ref-right', 'ref-footer', 'view-all', 'detail-img-wrapper'
+      ];
+      
+      var orientation = window.orientation;
+      
+      if (orientation == 90) {
+        clearClass();
+        changeTo90();
+      }else if (orientation == 0) {
+        clearClass();
+        changeTo0();
+      }
+      
+      function changeTo90() {
+      };
+      
+      function changeTo0(){
+        
+      };
+      
+      // delete all class for all id
+      function clearClass() {
+        for (var i = 0; i < arr_id; i++) {
+          arr_id[i].removeClass();
+        }
+      }
+      
+      function id_and_class (id, c) {
+        this.id = id;
+        this.c = c;
+      }
+      
+      var arr_pair = [
+        new id_and_class("#ref", "ref"),
+        new id_and_class("#plugin-by", "header"),
+        new id_and_class("#dot", "dot"),
+        new id_and_class("#ref-main", "ref_main"),
+        new id_and_class("#ref-left", "ref-left move float-left"),
+        new id_and_class("#dir", "dir"),
+        new id_and_class("#ref-center", "ref-center float-left"),
+        new id_and_class("#detail", "detail ref-center float-left"),
+        new id_and_class("#detail-header", "detail-header"),
+        new id_and_class("#detail-img-wrapper", "detail-img-wrapper"),
+        new id_and_class("#detail-img", "detail-img"),
+        new id_and_class("#detail-name", "detail-name"),
+        new id_and_class("#detail-desc", "detail-desc"),
+        new id_and_class("#detail-location", "detail-location"),
+        new id_and_class("#detail-duration", "detail-duration"),
+        new id_and_class("#ref-right", "ref-right move float-left"),
+        new id_and_class("#ref-right-img", "ref-right-img"),
+        new id_and_class("#ref-footer", "ref-footer"),
+        new id_and_class("#view-all", "view-all")
+      ];
+      
       function badge(num, img, name, desc, location, duration) {
         this.num = num;
         this.img = img;
@@ -132,7 +213,7 @@
         new badge(1, "img/1.png", "albert", "al", "abc", "123"),
         new badge(2, "img/2.png", "tracey", "ma", "dsa", "123"),
         new badge(3, "img/3.png", "test", "test", "aaa", "111")
-      ]
+      ];
       
       function fillData(num) {
         $("#detail-img").attr("src", badges[num].img)
@@ -164,25 +245,24 @@
         clearData();
       });
       
-      alert(window.orientation);
-      
       $(window).bind('orientationchange', function() {
       });
     });
   </script>
 </head>
 <body>
-  <div id="ref">
 
-    <div id="header">
-      <img id="plugin-by" src="plugin-by.png" />
-      <img id="dot" src="dot.png" />
+  <div id="ref" class="ref">
+
+    <div id="header" class="header">
+      <img id="plugin-by" class="plugin-by" src="plugin-by.png" />
+      <img id="dot" class="dot" src="dot.png" />
     </div>
   
     <div id="ref-main" class="ref-main">
 
-      <div id="ref-left" class="move float-left">
-        <img class="dir" src="plugin-left.png" />
+      <div id="ref-left" class="ref-left move float-left">
+        <img id="dir" class="dir" src="plugin-left.png" />
       </div>
       
       <div id="ref-center" class="ref-center float-left">
@@ -232,29 +312,29 @@
         </div>
       </div>
 
-      <div id="detail" class="ref-center float-left">
-        <div id="detail-header" style="text-align: right">
+      <div id="detail" class="detail ref-center float-left">
+        <div id="detail-header" style="detail-header">
           click to return
         </div>
 
-        <div class="float-left" style="width: 120px; text-align: center">
-          <img id="detail-img"/>
+        <div id="detail-img-wrapper" class="detail-img-wrapper float-left">
+          <img id="detail-img" class="detail-img"/>
         </div>
 
-        <div>Name: <span id="detail-name"></span></div>
-        <div>Desc: <span id="detail-desc"></span></div>
-        <div>Location: <span id="detail-location"></span></div>
-        <div>Duration: <span id="detail-duration"></span></div>
+        <div>Name: <span id="detail-name" class="detail-name"></span></div>
+        <div>Desc: <span id="detail-desc" class="detail-desc"></span></div>
+        <div>Location: <span id="detail-location" class="detail-location"></span></div>
+        <div>Duration: <span id="detail-duration" class="detail-duration"></span></div>
       </div>
       
-      <div id="ref-right" class="move float-left">
+      <div id="ref-right" class="ref-right move float-left">
         <img class="dir" src="plugin-right.png" />
       </div>
 
     </div>
     
-    <div id="ref-footer">
-      <img id="view-all" src="view-all.png">
+    <div id="ref-footer" class="ref-footer">
+      <img id="view-all" class="view-all" src="view-all.png">
     </div>
     
   </div>
