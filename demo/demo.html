@@ -208,6 +208,8 @@
   
     $(document).ready( function() {
       
+      var lastRatio = 1;
+      
       function start() {
         // detect the orientation of user screen
         var orientation = window.orientation;
@@ -223,7 +225,9 @@
         }
         
         changeTo(type);
+        adjustSize(1 / lastRatio);
         adjustSize(ratio);
+        lastRatio = ratio;
       }
       
       function adjustSize(ratio) {
