@@ -6,7 +6,7 @@
       cursor: pointer;
     }
   
-    #ref {
+    .ref {
       width: 750px;
       height: 250px;
       border: 1px solid #e4e4e4;
@@ -14,20 +14,20 @@
       margin: auto;
     }
 
-    #header {
+    .header {
       width: 100%;
       height: 40px;
       position: relative;
     }
 
-    #plugin-by {
+    .plugin-by {
       max-height: 100%;
       position: absolute;
       top: 10px;
       left: 10px;
     }
 
-    #dot {
+    .dot {
       max-height: 100%;
       position: absolute;
       right: 80px;
@@ -45,13 +45,13 @@
       position: relative;
     }
     
-    #ref-footer {
+    .ref-footer {
       width: 100%;
       height: 40px;
       text-align: right;
     }
 
-    #view-all {
+    .view-all {
       max-height: 100%;
     }
     
@@ -117,6 +117,22 @@
   <script type="text/javascript" src="jquery-ui-1.8.21.custom.min.js"></script>
   <script type="text/javascript">
     $(document).ready( function() {
+      
+      var orientation = window.orientation;
+      if (orientation == 90) {
+        changeTo90();
+      }else if (orientation == 0) {
+        changeTo0();
+      }
+      
+      function changeTo90() {
+        
+      };
+      
+      function changeTo0(){
+        
+      }
+      
       function badge(num, img, name, desc, location, duration) {
         this.num = num;
         this.img = img;
@@ -168,17 +184,17 @@
   </script>
 </head>
 <body>
-  <div id="ref">
+  <div id="ref" class="ref">
 
-    <div id="header">
-      <img id="plugin-by" src="plugin-by.png" />
-      <img id="dot" src="dot.png" />
+    <div id="header" class="header">
+      <img id="plugin-by" class="plugin-by" src="plugin-by.png" />
+      <img id="dot" class="dot" src="dot.png" />
     </div>
   
     <div id="ref-main" class="ref-main">
 
-      <div id="ref-left" class="move float-left">
-        <img class="dir" src="plugin-left.png" />
+      <div id="ref-left" class="ref-left move float-left">
+        <img id="dir" class="dir" src="plugin-left.png" />
       </div>
       
       <div id="ref-center" class="ref-center float-left">
@@ -228,29 +244,29 @@
         </div>
       </div>
 
-      <div id="detail" class="ref-center float-left">
+      <div id="detail" class="detail ref-center float-left">
         <div id="detail-header" style="text-align: right">
           click to return
         </div>
 
         <div class="float-left" style="width: 120px; text-align: center">
-          <img id="detail-img"/>
+          <img id="detail-img" class="detail-img"/>
         </div>
 
-        <div>Name: <span id="detail-name"></span></div>
-        <div>Desc: <span id="detail-desc"></span></div>
-        <div>Location: <span id="detail-location"></span></div>
-        <div>Duration: <span id="detail-duration"></span></div>
+        <div>Name: <span id="detail-name" class="detail-name"></span></div>
+        <div>Desc: <span id="detail-desc" class="detail-desc"></span></div>
+        <div>Location: <span id="detail-location" class="detail-location"></span></div>
+        <div>Duration: <span id="detail-duration" class="detail-duration"></span></div>
       </div>
       
-      <div id="ref-right" class="move float-left">
+      <div id="ref-right" class="ref-right move float-left">
         <img class="dir" src="plugin-right.png" />
       </div>
 
     </div>
     
-    <div id="ref-footer">
-      <img id="view-all" src="view-all.png">
+    <div id="ref-footer" class="ref-footer">
+      <img id="view-all" class="view-all" src="view-all.png">
     </div>
     
   </div>
