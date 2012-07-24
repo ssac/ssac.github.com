@@ -215,20 +215,20 @@
         var orientation = window.orientation;
         var type = 2;
         //var ratio = screen.availHeight / 750;
-        var ratio = 1;
+        //var ratio = 1;
         if (orientation == 90) {
           type = 1;
-          ratio = screen.availWidth / 750;
+          //ratio = screen.availWidth / 750;
         }
         else if (orientation == 0) {
           type = 2;
-          ratio = screen.availHeight / 750;
+          //ratio = screen.availHeight / 750;
         }
         
         changeTo(type);
-        adjustSize(1 / lastRatio);
-        adjustSize(ratio);
-        lastRatio = ratio;
+        //adjustSize(1 / lastRatio);
+        //adjustSize(ratio);
+        //lastRatio = ratio;
       }
       
       function adjustSize(ratio) {
