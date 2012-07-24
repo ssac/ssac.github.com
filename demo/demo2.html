@@ -6,7 +6,8 @@
     <script>
       $(document).ready( function() {
       
-        alert("test3" + $.mobile.orientationChangeEnabled);
+        //alert("test3" + $.mobile.orientationChangeEnabled);
+        alert(window.orientation);
         $(window).bind('orientationchange', function() {
           alert("yes");
         });
