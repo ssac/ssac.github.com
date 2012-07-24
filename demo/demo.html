@@ -114,6 +114,7 @@
     }
   </style>
   <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.mobile-1.1.1.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.8.21.custom.min.js"></script>
   <script type="text/javascript">
     $(document).ready( function() {
@@ -163,7 +164,10 @@
         clearData();
       });
       
-      allert(window.orientation);
+      alert(window.orientation);
+      
+      $(window).bind('orientationchange', function() {
+      });
     });
   </script>
 </head>
