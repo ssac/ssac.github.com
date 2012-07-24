@@ -156,7 +156,7 @@
       float: left;
     }
     .badge-90 {
-      width: 100%;
+      width: 166px;
       height: 136px;
     }
 
@@ -212,14 +212,14 @@
         // detect the orientation of user screen
         var orientation = window.orientation;
         var type = 2;
-        var ratio = screen.height / 750;
+        var ratio = screen.availHeight / 750;
         if (orientation == 90) {
           type = 1;
-          ratio = screen.width / 750;
+          ratio = screen.availWidth / 750;
         }
         else if (orientation == 0) {
           type = 2;
-          ratio = screen.height / 750;
+          ratio = screen.availHeight / 750;
         }
         
         changeTo(type);
