@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -6,20 +6,39 @@
     body {
       cursor: pointer;
     }
-  
+    
+    .bg {
+      width: 742px;
+      height: 375px;
+      background-image: url('Hoz_CU_background2.png');
+    }
+    .bg-90 {
+      width: 375px;
+      height: 833px;
+      background-image: url('Vertical_CU_background.png'); 
+    }
+    
+    #ref {
+      background-color: white;
+    }
+    
     .ref {
       width: 594px;
       height: 250px;
       border: 1px solid #e4e4e4;
-      position: relative;
-      margin: auto;
+      
+      position: absolute;
+      top: 60px;
+      left: 73px;
     }
     .ref-90 {
       width: 250px;
       height: 594px;
       border: 1px solid #e4e4e4;
-      position: relative;
-      margin: auto;
+      
+      position: absolute;
+      top: 150px;
+      left: 61px;
     }
 
     .header {
@@ -208,7 +227,8 @@
     }
 
     .badge-img {
-      width: 90%;
+      max-width: 95%;
+      max-height:95%;
     }
 
     .badge-name {
@@ -340,7 +360,15 @@
         this.o2 = o2;
       }
       
+      function injectBadge() {
+        for (var i = 0; i < badges.length; i++) {
+          $(".badge-img").eq(i).attr('src', badges[i].img);
+          $(".badge-name").eq(i).text(badges[i].name);
+        }
+      }
+      
       var arr_pair = [
+        new id_and_class("#bg", "bg", "bg-90"),
         new id_and_class("#ref", "ref", "ref-90"),
         new id_and_class("#header", "header", "header-90"),
         new id_and_class("#plugin-by", "plugin-by", "plugin-by-90"),
@@ -373,10 +401,9 @@
       }
     
       var badges = [
-        new badge(0, "img/0.png", "sam", "ssac", "kw", "111"),
-        new badge(1, "img/1.png", "albert", "al", "abc", "123"),
-        new badge(2, "img/2.png", "tracey", "ma", "dsa", "123"),
-        new badge(3, "img/3.png", "test", "test", "aaa", "111")
+        new badge(0, "img/0.png", "劉小鷹", "劉小鷹1988年畢業於香港中文大學市場與國際貿易系（新亞書院），擁有愛爾蘭國立大學信息科技榮譽碩士學位。 1993年創辦長遠有限公司， 成功取得諾基亞中國市場第一家全國總代理資格。2000年1月帶領長遠集團於香港創業板上市，2004年轉往主板掛牌。現爲香港中文大學新亞書院校董之一，及任中國移動通訊聯合會常務理事﹑中華信息科技商會執行主席。曾進行多項投資，現爲黃石鍶發礦業有限公司董事長；張家界盛美達度假酒店董事長； 北京威速科技有限公司董事。", "Hong Kong", "2011-2012"),
+        new badge(1, "img/1.png", "曾立基", "曾立基1988年畢業於中文大學新聞與傳播學系（新亞書院），投身社會第一份工作擔任酒店公關，開始了公關生涯。1990年，香港證券市場上市活動趨於活躍，轉職財經公關，從此展開財經公關顧問事業。他於1995年香港經濟低迷時逆市創立縱橫公關顧問集團，幾年間躍升亞太區規模最大財經公關公司及香港最大公關顧問公司。2000年科網泡沫爆破，集團因為擴充過度，面臨超支困境，惟經過一年奮鬥，便重回正軌。2009年環球金融海嘯，未有妨礙該公司準備更進一步擴展的步伐。", "Hong Kong", "2011-2012"),
+        new badge(2, "img/2.png", "屈國良", "最近，他專注於中小企的資訊科技應用、網上推廣、開放源碼、互聯網軟件服務、軟件質量、和資訊保安管治。他的經驗涵蓋全球資訊網Web 2.0、電子商務、客戶關係管理、零售、無線應用、會計、物流、貿易、生產、銀行及財務等各方面的解決方案。為資訊及軟件業商會(ISIA)的創會和現任副主席、香港電腦學會的終身資深會員、資訊財務師協會的資深會員、香港政府學生資助聯席會議委員（2001 – 2006）、以及香港學術及職業資歷評審局信息產業專家。", "Hong Kong", "2011-2012")
       ];
       
       function fillData(num) {
@@ -413,99 +440,99 @@
       });
       
       start();
+      injectBadge();
     });
   </script>
 </head>
 <body>
-
-  <div id="ref" class="ref">
-
-    <div id="header">
-      <img id="plugin-by" src="plugin-by.png" />
-      <img id="dot" src="dot.png" />
-    </div>
+  <div id="bg" class="bg">
   
-    <div id="ref-main">
+    <div id="ref" class="ref">
 
-      <div id="ref-left">
-        <img id="ref-left-img" />
+      <div id="header">
+        <img id="plugin-by" src="plugin-by.png" />
+        <img id="dot" src="dot.png" />
+      </div>
+    
+      <div id="ref-main">
+
+        <div id="ref-left">
+          <img id="ref-left-img" />
+        </div>
+        
+        <div id="ref-center">
+
+          <div data="0">
+            <div class="content">
+              <div class="badge-img-wrapper">
+                <img class="badge-img" />
+              </div>
+              <div class="badge-name">
+              </div>
+            </div>
+          </div>
+          
+          <div data="1">
+            <div class="content">
+              <div class="badge-img-wrapper">
+                <img class="badge-img" />
+              </div>
+              <div class="badge-name">
+              </div>
+            </div>
+          </div>
+          
+          <div data="2">
+            <div class="content">
+              <div class="badge-img-wrapper">
+                <img class="badge-img" />
+              </div>
+              <div class="badge-name">
+              </div>
+            </div>
+          </div>
+          
+          <!--
+          <div data="3">
+            <div class="content">
+              <div class="badge-img-wrapper">
+                <img class="badge-img" src="img/3.png" />
+              </div>
+              <div class="badge-name">
+                Kif
+              </div>
+            </div>
+          </div>
+          -->
+          
+        </div>
+
+        <div id="detail">
+          <div id="detail-header">
+            click to return
+          </div>
+
+          <div id="detail-img-wrapper">
+            <img id="detail-img"/>
+          </div>
+
+          <div>Name: <span id="detail-name"></span></div>
+          <div>Desc: <span id="detail-desc"></span></div>
+          <div>Location: <span id="detail-location"></span></div>
+          <div>Duration: <span id="detail-duration"></span></div>
+        </div>
+        
+        <div id="ref-right">
+          <img id="ref-right-img" />
+        </div>
+
       </div>
       
-      <div id="ref-center">
-
-        <div data="0">
-          <div class="content">
-            <div class="badge-img-wrapper">
-              <img class="badge-img" src="img/0.png" />
-            </div>
-            <div class="badge-name">
-              Albert
-            </div>
-          </div>
-        </div>
-        
-        <div data="1">
-          <div class="content">
-            <div class="badge-img-wrapper">
-              <img class="badge-img" src="img/1.png" />
-            </div>
-            <div class="badge-name">
-              Tracey
-            </div>
-          </div>
-        </div>
-        
-        <div data="2">
-          <div class="content">
-            <div class="badge-img-wrapper">
-              <img class="badge-img" src="img/2.png" />
-            </div>
-            <div class="badge-name">
-              Edward
-            </div>
-          </div>
-        </div>
-        
-        <!--
-        <div data="3">
-          <div class="content">
-            <div class="badge-img-wrapper">
-              <img class="badge-img" src="img/3.png" />
-            </div>
-            <div class="badge-name">
-              Kif
-            </div>
-          </div>
-        </div>
-        -->
-        
-      </div>
-
-      <div id="detail">
-        <div id="detail-header">
-          click to return
-        </div>
-
-        <div id="detail-img-wrapper">
-          <img id="detail-img"/>
-        </div>
-
-        <div>Name: <span id="detail-name"></span></div>
-        <div>Desc: <span id="detail-desc"></span></div>
-        <div>Location: <span id="detail-location"></span></div>
-        <div>Duration: <span id="detail-duration"></span></div>
+      <div id="ref-footer">
+        <img id="view-all" src="view-all.png">
       </div>
       
-      <div id="ref-right">
-        <img id="ref-right-img" />
-      </div>
-
     </div>
-    
-    <div id="ref-footer">
-      <img id="view-all" src="view-all.png">
-    </div>
-    
   </div>
 </body>
 </html>
