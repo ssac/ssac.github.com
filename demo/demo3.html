@@ -34,12 +34,19 @@
     $(document).ready( function(){
     
       function show() {
-        if (window.orientation == 90)
+        var orientation = window.orientation;
+      
+        if (orientation == 90 || orientation == 270)
           $("#page-h").show();
-        else if (window.orientation == 0)
+        else if (orientation == 0 || orientation == 180)
           $("#page-v").show();
         else
           $("#page-v").show();
+      }
+      
+      function start() {
+        $(".show").hide();
+        show();
       }
       
       $(".control").click( function() {
@@ -48,10 +55,13 @@
         var desc_img = $(this).attr('data');
         $(".desc-img").attr('src', desc_img);
         
-        if (window.orientation == 90)
+        var orientation = window.orientation;
+        
+        if (orientation == 90 || orientation == 270)
           $("#desc-h").show();
-        else if (window.orientation == 0)
+        else if (orientation == 0 || orientation == 180) {
           $("#desc-v").show();
+        }
         else
           $("#desc-v").show();
       });
@@ -61,13 +71,11 @@
         show();
       });
       
-      $(".show").hide();
-      show();
-      
       $(window).bind('orientationchange', function() {
-        $(".show").hide();
-        show();
+        start();
       });
+      
+      start();
 
     });
   </script>
@@ -75,7 +83,7 @@
 <body>
 
   <div id="page-v" class="show">
-    <img src="page-v.png" usemap="#page-v-map" />
+    <img src="page-v-2.png" usemap="#page-v-map" />
     <map name="page-v-map">
       <area shape="rect" coords="120 280 260 370" data="v1.png" class="control" />
       <area shape="rect" coords="120 400 260 500" data="v2.png" class="control" />
