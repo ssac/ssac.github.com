@@ -110,6 +110,9 @@
     .ref-right-90 {
     }
     
+    .ref-right-img-90 {
+    }
+    
     .move {
       width: 60px;
       height: 170px;
@@ -136,12 +139,12 @@
     }
 
     .dir {
+      bottom: 50%;
       position: absolute;
-      top: 69px;
     }
     .dir-90 {
+      top: 50%;
       position: absolute;
-      top: 11px;
     }
 
     .right-line {
@@ -213,7 +216,7 @@
       function start() {
         // detect the orientation of user screen
         var orientation = window.orientation;
-        var type = 1;
+        var type = 2;
         //var ratio = screen.availHeight / 750;
         //var ratio = 1;
         if (orientation == 90) {
