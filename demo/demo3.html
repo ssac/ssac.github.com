@@ -63,6 +63,11 @@
       
       $(".show").hide();
       show();
+      
+      $(window).bind('orientationchange' function() {
+        $(".show").hide();
+        show();
+      });
 
     });
   </script>
