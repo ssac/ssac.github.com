@@ -34,9 +34,9 @@
     $(document).ready( function(){
     
       function show() {
-        if (window.orientation == 0)
+        if (window.orientation == 90)
           $("#page-h").show();
-        else if (window.orientation == 90)
+        else if (window.orientation == 0)
           $("#page-v").show();
         else
           $("#page-v").show();
@@ -48,9 +48,9 @@
         var desc_img = $(this).attr('data');
         $(".desc-img").attr('src', desc_img);
         
-        if (window.orientation == 0)
+        if (window.orientation == 90)
           $("#desc-h").show();
-        else if (window.orientation == 90)
+        else if (window.orientation == 0)
           $("#desc-v").show();
         else
           $("#desc-v").show();
