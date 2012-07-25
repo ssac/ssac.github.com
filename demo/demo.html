@@ -141,10 +141,29 @@
     .dir {
       #bottom: 50%;
       #position: absolute;
+      vertical-align: middle;
     }
     .dir-90 {
       #top: 50%;
       #position: absolute;
+    }
+    
+    .ref-right-img {
+      position: absolute;
+      bottom: 50%;
+    }
+    .ref-right-img-90 {
+      position: absolute;
+      top: 50%;
+    }
+    
+    .ref-left-img {
+      position: absolute;
+      bottom: 50%;
+    }
+    .ref-left-img-90 {
+      position: absolute;
+      top: 50%;
     }
 
     .right-line {
@@ -318,7 +337,7 @@
         new id_and_class("#dot", "dot", "dot-90"),
         new id_and_class("#ref-main", "ref-main", "ref-main-90"),
         new id_and_class("#ref-left", "ref-left move", "ref-left-90 move-90"),
-        new id_and_class("#ref-left-img", "dir", "dir-90"),
+        new id_and_class("#ref-left-img", "ref-left-img", "ref-left-img-90"),
         new id_and_class("#ref-center", "ref-center float-left", "ref-center-90"),
         new id_and_class("#detail", "ref-center float-left", "ref-center-90"),
         new id_and_class("#detail-header", "detail-header", "detail-header-90"),
@@ -329,7 +348,7 @@
         new id_and_class("#detail-location", "detail-location", "detail-location-90"),
         new id_and_class("#detail-duration", "detail-duration", "detail-duration-90"),
         new id_and_class("#ref-right", "ref-right move", "ref-right-90 move-90"),
-        new id_and_class("#ref-right-img", "dir", "dir-90"),
+        new id_and_class("#ref-right-img", "ref-right-img", "ref-right-img-90"),
         new id_and_class("#ref-footer", "ref-footer", "ref-footer"),
         new id_and_class("#view-all", "view-all", "view-all-90")
       ];
