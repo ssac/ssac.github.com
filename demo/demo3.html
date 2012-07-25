@@ -1,20 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    #page-v {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .show {
+      margin-top: -100px;
+    }
+    
+    .back {
+      position: absolute;
+    }
+    
+    #desc-v-back {
+      top: 230px;
+      left: 200px;
+    }
+    
+    #desc-h-back {
+      top: 200px;
+      left: 1180px;
+    }
+    
+    .desc {
+      position: relative;
+    }
+  </style>
   <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
   <script>
     $(document).ready( function(){
-      var details = [
-      ];
+    
+      function show() {
+        if (window.orientation == 0)
+          $("#page-h").show();
+        else if (window.orientation == 90)
+          $("#page-v").show();
+        else
+          $("#page-v").show();
+      }
       
-      var pages = [
-      ];
+      $(".control").click( function() {
+        $(".show").hide();
+        
+        var desc_img = $(this).attr('data');
+        $(".desc-img").attr('src', desc_img);
+        
+        if (window.orientation == 0)
+          $("#desc-h").show();
+        else if (window.orientation == 90)
+          $("#desc-v").show();
+        else
+          $("#desc-v").show();
+      });
+      
+      $(".back").click( function() {
+        $(".show").hide();
+        show();
+      });
+      
+      $(".show").hide();
+      show();
+
     });
   </script>
 </head>
 <body>
-  <div>
-    <img id="page" src="Badge des_SPRG.png" style="margin-top: -100px;">
+
+  <div id="page-v" class="show">
+    <img src="page-v.png" usemap="#page-v-map" />
+    <map name="page-v-map">
+      <area shape="rect" coords="120 280 260 370" data="v1.png" class="control" />
+      <area shape="rect" coords="120 400 260 500" data="v2.png" class="control" />
+      <area shape="rect" coords="120 540 260 620" data="v3.png" class="control" />
+    </map>
   </div>
+  
+  <div id="page-h" class="show">
+    <img src="page-h.png" usemap="#page-h-map" />
+    <map name="page-h-map">
+      <area shape="rect" coords="250 250 520 480" data="h1.png" class="control" />
+      <area shape="rect" coords="560 250 860 480" data="h2.png" class="control" />
+      <area shape="rect" coords="900 250 1200 480" data="h3.png" class="control" />
+    </map>
+  </div>
+  
+  <div id="desc-v" class="show desc">
+    <img id="desc-v-back" class="back" src="back.png" />
+    <img id="desc-img-v" class="desc-img" />
+  </div>
+  
+  <div id="desc-h" class="show desc">
+    <img id="desc-h-back" class="back" src="back.png" />
+    <img id="desc-img-h" class="desc-img" />
+  </div>
+  
 </body>
 </html>
