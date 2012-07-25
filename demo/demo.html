@@ -2,6 +2,12 @@
 <html>
 <head>
   <style>
+  
+	html {
+		width: 0px;
+    height: 0px;
+	}
+  
     body {
       cursor: pointer;
     }
@@ -201,7 +207,7 @@
     
   </style>
   <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-  <!-- <script type="text/javascript" src="jquery.mobile-1.1.1.min.js"></script> -->
+  <!--<script type="text/javascript" src="jquery.mobile-1.1.1.min.js"></script>-->
   <script type="text/javascript" src="jquery-ui-1.8.21.custom.min.js"></script>
   
   <script type="text/javascript">
@@ -229,6 +235,10 @@
         //adjustSize(ratio);
         //lastRatio = ratio;
       }
+	  
+	  window.changeTo = function(type) {
+		changeTo(type);
+	  }
       
       function adjustSize(ratio) {
         $.each($("div"), function() {
