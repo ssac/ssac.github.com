@@ -46,21 +46,22 @@
     //alert(document.documentElement.clientWidth);
     $(document).ready( function(){
     
+      var lastShownId = null;
+    
       function show() {
         var orientation = window.orientation;
       
         if (orientation == 90 || orientation == 270) {
-          //$("img").css('max-width', '100%');
-          $("#page-h").show();
+            $(lastShownId && lastShownId.replace(/-v-/, "-h-") || "#page-h").show();
         }
         else if (orientation == 0 || orientation == 180) {
-          //$("img").css('max-height', '100%');
-          $("#page-v").show();
+            $(lastShownId && lastShownId.replace(/-h-/, "-v-") || "#page-v").show();
         }
-        else {
-          //$("img").css('max-height', '460px');
-          $("#page-v").show();
-        }
+        
+        var client_width = document.documentElement.clientWidth;
+        var client_height = document.documentElement.clientHeight;
+        var ratio = Math.min((isVertical()? client_width : client_height) / 725, (isVertical()? client_height : client_width) / 1435)
+        document.documentElement.style.zoom = ratio;
       }
       
       function start() {
@@ -69,39 +70,25 @@
       }
       window.start = start;
       
-      function adjustPageHMarginTop() {
-        var availHeight = screen.availHeight;
-        var currentHeight = $("#page-v").height();
-        var diffHeight = availHeight - currentHeight;
-        $("#page-h").css('margin-top', diffHeight + "px");
-        alert(diffHeight);
-      }
-      
       function isVertical() {
-        return (window.orientation == 0) ? true : false;
-      }
-      
-      function resizeScreen() {
-        var availWidth = screen.availWidth;
-        var availHeight = screen.availHeight;
-        
-        if (isVertical()) {
-          
-        }
-        else {
-        }
+        return (window.orientation == 0 || window.orientation == 180) ? true : false;
       }
       
       $(".control").click( function() {
         $(".show").hide();
-        
-        var orientation = window.orientation;
         var data = $(this).attr('data');
-        
+        lastShownId = data;
         $(data).show();
       });
       
-      
+      $(".prev, .next").click( function() {
+        var num = lastShownId.slice(lastShownId.length - 1) * 1 + ($(this).hasClass('prev') ? -1 : 1);
+        if(num < 1) num = 3;
+        if(num > 3) num = 1;
+        lastShownId = lastShownId.slice(0, lastShownId.length - 1) + num;
+        
+        start();
+      });
       
       //document.body.style.zoom = 0.4;
       
@@ -109,22 +96,16 @@
       
       $(".return").click( function() {
         $(".show").hide();
+        lastShownId = null;
         show();
       });
       
-      $(window).bind('orientationchange', function() {
+      $(window).bind('resize orientationchange', function() {
         start();
       });
       
       window.orientation = 0;
       start();
-      
-      var client_width = document.documentElement.clientWidth;
-      var client_height = document.documentElement.clientHeight;
-      
-      var ratio = Math.min((isVertical()? client_width : client_height) / 725, (isVertical()? client_height : client_width) / 1435)
-      
-      document.documentElement.style.zoom = ratio;
     });
   </script>
 </head>
@@ -143,18 +124,20 @@
       <img src="img/v1.png" usemap="#desc-v-1" />
       <map name="desc-v-1">
         <area shape="rect" coords="460 150 540 200" class="return" />
+        <area shape="rect" coords="210 150 480 210" class="prev" />
+        <area shape="rect" coords="200 1240 430 1300" class="next" />
       </map>
     </div>
     
     <div id="desc-v-2" class="show div-vertical">
-      <img src="img/v2.png" usemap="#desc-v-2" />
+      <img src="img/v2.png" usemap="#desc-v-1" />
       <map name="desc-v-2">
         <area shape="rect" coords="460 150 540 200" class="return" />
       </map>
     </div>
   
     <div id="desc-v-3" class="show">
-      <img src="img/v3.png" usemap="#desc-v-3" />
+      <img src="img/v3.png" usemap="#desc-v-1" />
       <map name="desc-v-3">
         <area shape="rect" coords="460 150 540 200" class="return" />
       </map>
@@ -173,18 +156,20 @@
       <img src="img/h1.png" usemap="#desc-h-1" />
       <map name="desc-h-1">
         <area shape="rect" coords="1150 200 1260 260" class="return" />
+        <area shape="rect" coords="110 210 210 520" class="prev" />
+        <area shape="rect" coords="1240 210 1310 480" class="next" />
       </map>
     </div>
     
     <div id="desc-h-2" class="show div-horizontal">
-      <img src="img/h2.png" usemap="#desc-h-2" />
+      <img src="img/h2.png" usemap="#desc-h-1" />
       <map name="desc-h-2">
         <area shape="rect" coords="1150 200 1260 260" class="return" />
       </map>
     </div>
     
     <div id="desc-h-3" class="show div-horizontal">
-      <img src="img/h3.png" usemap="#desc-h-3" />
+      <img src="img/h3.png" usemap="#desc-h-1" />
       <map name="desc-h-3">
         <area shape="rect" coords="1150 200 1260 260" class="return" />
       </map>
