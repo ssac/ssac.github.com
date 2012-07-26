@@ -2,13 +2,15 @@
 <html>
 <head>
   <style>
-    #page-v {
+    .div-vertical {
       margin-left: auto;
       margin-right: auto;
+      width: 725px;
+      height: 1435px;
     }
-  
+    
     .show {
-      margin-top: -100px;
+      margin: auto;
     }
     
     .back {
@@ -36,10 +38,13 @@
       function show() {
         var orientation = window.orientation;
       
-        if (orientation == 90 || orientation == 270)
+        if (orientation == 90 || orientation == 270) {
           $("#page-h").show();
-        else if (orientation == 0 || orientation == 180)
+          //adjustPageHMarginTop();
+        }
+        else if (orientation == 0 || orientation == 180) {
           $("#page-v").show();
+        }
         else
           $("#page-v").show();
       }
@@ -48,25 +53,65 @@
         $(".show").hide();
         show();
       }
+      window.start = start;
+      
+      function adjustPageHMarginTop() {
+        var availHeight = screen.availHeight;
+        var currentHeight = $("#page-v").height();
+        var diffHeight = availHeight - currentHeight;
+        $("#page-h").css('margin-top', diffHeight + "px");
+        alert(diffHeight);
+      }
+      
+      function isVertical() {
+        return (window.orientation == 0) ? true : false;
+      }
+      
+      function resizeScreen() {
+        var availWidth = screen.availWidth;
+        var availHeight = screen.availHeight;
+        
+        if (isVertical()) {
+          
+        }
+        else {
+        }
+      }
       
       $(".control").click( function() {
         $(".show").hide();
         
-        var desc_img = $(this).attr('data');
-        $(".desc-img").attr('src', desc_img);
-        
         var orientation = window.orientation;
+        //var desc_img = $(this).attr('data');
         
-        if (orientation == 90 || orientation == 270)
+        var data = $(this).attr('data');
+        
+        /*
+        if (orientation == 90 || orientation == 270) {
+          $("#desc-img-h").attr('src', desc_img);
           $("#desc-h").show();
+        }
         else if (orientation == 0 || orientation == 180) {
+          $("#desc-img-v").attr('src', desc_img);
           $("#desc-v").show();
         }
-        else
+        else {
+          $("#desc-img-v").attr('src', desc_img);
           $("#desc-v").show();
+        }
+        */
+        
+        $(data).show();
       });
       
+      /*
       $(".back").click( function() {
+        $(".show").hide();
+        show();
+      });
+      */
+      
+      $(".return").click( function() {
         $(".show").hide();
         show();
       });
@@ -75,6 +120,7 @@
         start();
       });
       
+      window.orientation = 0;
       start();
 
     });
@@ -82,25 +128,67 @@
 </head>
 <body>
 
-  <div id="page-v" class="show">
-    <img src="page-v.png" usemap="#page-v-map" />
-    <map name="page-v-map">
-      <area shape="rect" coords="120 280 260 370" data="v1.png" class="control" />
-      <area shape="rect" coords="120 400 260 500" data="v2.png" class="control" />
-      <area shape="rect" coords="120 540 260 620" data="v3.png" class="control" />
-    </map>
-  </div>
+    <div id="page-v" class="show div-vertical">
+      <img src="img/page-v.png" usemap="#page-v-map" />
+      <map name="page-v-map">
+        <area shape="rect" coords="120 280 260 370" data="#desc-v-1" class="control" />
+        <area shape="rect" coords="120 400 260 500" data="#desc-v-2" class="control" />
+        <area shape="rect" coords="120 540 260 620" data="#desc-v-3" class="control" />
+      </map>
+    </div>
+    
+    <div id="desc-v-1" class="show div-vertical">
+      <img src="img/v1.png" usemap="#desc-v-1" />
+      <map name="desc-v-1">
+        <area shape="rect" coords="" class="return" />
+      </map>
+    </div>
+    
+    <div id="desc-v-2" class="show div-vertical">
+      <img src="img/v2.png" usemap="#desc-v-2" />
+      <map name="desc-v-2">
+        <area shape="rect" coords="" class="return" />
+      </map>
+    </div>
   
-  <div id="page-h" class="show">
-    <img src="page-h.png" usemap="#page-h-map" />
-    <map name="page-h-map">
-      <area shape="rect" coords="250 250 520 480" data="h1.png" class="control" />
-      <area shape="rect" coords="560 250 860 480" data="h2.png" class="control" />
-      <area shape="rect" coords="900 250 1200 480" data="h3.png" class="control" />
-    </map>
-  </div>
+    <div id="desc-v-3" class="show">
+      <img src="img/v3.png" usemap="#desc-v-3" />
+      <map name="desc-v-3">
+        <area shape="rect" coords="" class="return" />
+      </map>
+    </div>
   
-  <div id="desc-v" class="show desc">
+    <div id="page-h" class="show div-horizontal">
+      <img src="page-h.png" usemap="#page-h-map" />
+      <map name="page-h-map">
+        <area shape="rect" coords="250 250 520 480" data="#desc-h-1" class="control" />
+        <area shape="rect" coords="560 250 860 480" data="#desc-h-2" class="control" />
+        <area shape="rect" coords="900 250 1200 480" data="#desc-h-3" class="control" />
+      </map>
+    </div>
+    
+    <div id="desc-h-1" class="show div-horizontal">
+      <img src="img/h1.png" usemap="#desc-h-1" />
+      <map name="desc-h-1">
+        <area shape="rect" coords="1200 200 1250 250" class="return" />
+      </map>
+    </div>
+    
+    <div id="desc-h-2" class="show div-horizontal">
+      <img src="img/h2.png" usemap="#desc-h-2" />
+      <map name="desc-h-2">
+        <area shape="rect" coords="1200 200 1250 250" class="return" />
+      </map>
+    </div>
+    
+    <div id="desc-h-3" class="show div-horizontal">
+      <img src="img/h3.png" usemap="#desc-h-3" />
+      <map name="desc-h-3">
+        <area shape="rect" coords="1200 200 1250 250" class="return" />
+      </map>
+    </div>
+  
+  <!-- <div id="desc-v" class="show desc">
     <img id="desc-v-back" class="back" src="back.png" />
     <img id="desc-img-v" class="desc-img" />
   </div>
@@ -108,7 +196,7 @@
   <div id="desc-h" class="show desc">
     <img id="desc-h-back" class="back" src="back.png" />
     <img id="desc-img-h" class="desc-img" />
-  </div>
+  </div> -->
   
 </body>
 </html>
