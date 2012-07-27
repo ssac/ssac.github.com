@@ -21,13 +21,14 @@
       var lastShownId = null;
 
       function start() {
+        console.log('start');
         $(".show").hide();
 
         if (isVertical()) {
-            lastShownId = lastShownId && lastShownId.replace(/-h-/, "-v-") || "#page-v";
+            lastShownId = lastShownId && lastShownId.replace(/-h\b/, "-v") || "#page-v";
         }
 		else {
-            lastShownId = lastShownId && lastShownId.replace(/-v-/, "-h-") || "#page-h";
+            lastShownId = lastShownId && lastShownId.replace(/-v\b/, "-h") || "#page-h";
         }
 
         $(lastShownId).show();
