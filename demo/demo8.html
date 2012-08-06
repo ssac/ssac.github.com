@@ -42,16 +42,16 @@
     }
   </style>
   
-  
-  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.mobile-1.1.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  
   <!-- <script type="text/javascript" src="js/klass.min.js"></script>
   <script type="text/javascript" src="js/code.photoswipe.noutil-3.0.5.min.js"></script> -->
   <script>
     //alert(document.documentElement.clientWidth);
-    //$(document).ready( function(){
+    $(document).ready( function(){
     
-    $(document).bind('pageinit', function() {
+    //$(document).live('pageinit', function() {
     
       //var lastShownId = null;
     
@@ -94,6 +94,8 @@
         $('#page2-2').hide();
         $('#page2-1').show();
       });
+      
+      //$('.ui-loader').hide();
       
       /*
       $(".control").click( function() {
