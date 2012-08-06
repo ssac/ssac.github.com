@@ -51,7 +51,7 @@
     //alert(document.documentElement.clientWidth);
     //$(document).ready( function(){
     
-    $(document).live('pageinit', function() {
+    $(document).bind('pageinit', function() {
     
       //var lastShownId = null;
     
@@ -95,7 +95,7 @@
         $('#page2-1').show();
       });
       
-      $('.ui-loader').hide();
+      //$('.ui-loader').hide();
       
       /*
       $(".control").click( function() {
