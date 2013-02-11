@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	var currentShowPageClass;
 
-	function switchPage = (pageClass, isSlide){
+	function switchPage(pageClass, isSlide){
 		$('.page-home, .page-about-me, .page-profolio, .page-nyaNotifier, .page-changeDetector').hide()
 
 		if(pageClass){
