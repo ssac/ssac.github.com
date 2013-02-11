@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 	<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
@@ -7,9 +8,11 @@
 	<script type="text/javascript" src="/js/xml2json.js"></script>
 	<link type="text/css" rel="stylesheet" href="/css/index.css" />
 </head>
-<body>
+
+<body class='root-en'>
+
 	<nav id="menu">
-		<div data=".page-home" class="nav middle float-left change-nav rotate-355">
+		<div data=".page-home" class="nav middle float-left change-nav rotate-355 selected">
 			<p class="en">HOME</p>
 			<p class="tw">首頁</p>
 		</div>
@@ -27,17 +30,20 @@
 		<div data=".page-changeDetector" class="nav middle float-left change-nav rotate-355">
 			<p>changeDetector</p>
 		</div>
-		<div class="nav middle float-right"><p>X</p></div>
 		<div class="nav middle float-right">
-			<p id="change-to-tw" class="en">CHINESE</p>
-			<p id="change-to-en" class="tw">ENGLISH</p>
+			<p>X</p>
+		</div>
+		<div class="nav middle float-right">
+			<p data-language='en' class="en switch-language">CHINESE</p>
+			<p data-language='tw' class="tw switch-language">ENGLISH</p>
 		</div>
 	</nav>
+
 	<aside class="middle">
 		<div id="window" class="radius">
 			<div id="content">
 				<div id="main-wrapper" class="float-left">
-				
+
 					<div name="home" class="main-wrapper page-home">
 						<div id="home-acer" class="over-desc over-desc-home radius" hidden="hidden">
 							<div class="over-desc-title">
@@ -88,7 +94,7 @@
 								<p>38%</p>
 							</div>
 						</div>
-						
+
 						<div id="desktop-notifier">
 							<div id="desktop-notifier-triangle"></div>
 							<div id="desktop-notifier-content" class="radius">
@@ -96,19 +102,19 @@
 								<p class="tw">我的桌面</p>
 							</div>
 						</div>
-						
+
 						<img id="cover" class="radius" src="/rs/img/cover2.jpg" usemap="#cover-control"/>
 						<map name="cover-control">
 							<area shape="rect" coords="0,145,275,365" data="#home-acer" class="cover-control" />
-							<area shape="rect" coords="255,80,560,245" data="#home-desktop" class="cover-control" /> 
+							<area shape="rect" coords="255,80,560,245" data="#home-desktop" class="cover-control" />
 							<area shape="rect" coords="500,260,636,370" data="#home-cup" class="cover-control" />
 							<area shape="rect" coords="666,80,731,125" data="#home-hello" class="cover-control" />
 							<area shape="rect" coords="367,340,432,370" data="#home-mic" class="cover-control" />
 							<area shape="rect" coords="95,35,158,130" data="#home-wine" class="cover-control" />
 						</map>
-						
+
 					</div>
-					
+
 					<div name="about-me" class="main-wrapper page-about-me">
 						<div id="about-me-animation" class="about-me-intro">
 							<div class="about-me-intro-img">
@@ -125,7 +131,7 @@
 							</div>
 							<div class="about-me-intro-text">
 								<p class="en">I used to drink, but I haven't drunk for 3 years...</p>
-								<p class="tw">年青時（喂！）喜歡飲酒，但我已經三年沒飲過了…</p>
+								<p class="tw">以前喜歡飲酒，但我已經三年沒飲過了…</p>
 							</div>
 						</div>
 						<div id="about-me-wow" class="about-me-intro">
@@ -147,14 +153,14 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div name="profolio" class="main-wrapper page-profolio middle">
 						<div>
 							<p class="en">Implement this page later after I leave / got fired of current job -,-</p>
 							<p class="tw">遲點才寫（才多點東西寫，喂！）</p>
 						</div>
 					</div>
-					
+
 					<div name="nyaNotifier" class="main-wrapper page-nyaNotifier">
 						<div id="nyaNotifier-banner">
 							<img src="/rs/img/nya.notifier.banner.png">
@@ -201,7 +207,7 @@
 									At the beginning, I want to build up a record system making use of google appengine datastore
 									api to collect the bugs reported by users at this page.
 									<br/>
-									After I typed a few of codes, damn it! why don't 
+									After I typed a few of codes, damn it! why don't
 									I just create a facebook fanspage or whatever familiar webpage, they do better job than
 									me building up from sketch!
 									<br/>
@@ -234,18 +240,18 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div name="changeDetector" class="main-wrapper page-changeDetector middle">
 						<div>
 							<p>Under Development!</p>
 						</div>
 					</div>
-					
+
 				</div>
-				
+
 				<div id="extra-info-wrapper" class="float-left">
 					<div id="extra-info" class="radius">
-						
+
 						<div class="page-home">
 							<div class="box">
 								<div name="site-info-wrapper">
@@ -285,7 +291,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="page-about-me">
 							<div name="page-about-me-box-wrapper" class="accordion-mouseover">
 								<div class="box-title">
@@ -320,13 +326,13 @@
 									<p>C/C++</p>
 									<p>JAVA, ANDROID SDK</p>
 									<p>SQL</p>
-									<p>C#.NET</p>
+									<p>Python</p>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="page-profolio"></div>
-						
+
 						<div class="page-nyaNotifier">
 							<div name="page-nyaNotifier-box-wrapper" class="accordion-mouseover">
 								<div class="box-title">
@@ -362,16 +368,15 @@
 								</div>
 							</div>
 						</div>
-												
+
 					</div>
 				</div>
-				
+
 				<!-- <div id="pic-choose" class="float-left"></div> -->
-				
 			</div>
-			
+
 			<div id="dialog-wrapper" class="radius">
-			
+
 				<div class="portrait">
 					<div class="page-home">
 						<img src="/rs/img/me.png">
@@ -389,12 +394,11 @@
 						<img src="/rs/img/me.confuse.png">
 					</div>
 				</div>
-				<!-- <div id="dialog-triangle"></div> -->
+
 				<div id="dialog" class="dialog radius">
-				
 					<div class="page-home">
 						<p class="en">
-							This is my personal website. Technically, I tried to present this site in more personal way, 
+							This is my personal website. Technically, I tried to present this site in more personal way,
 							for making this site different from CMS-made website. However, it seems failed (honestly speaking
 							, some CMS themes look even better in graphic design...).
 							<br/>
@@ -403,7 +407,7 @@
 							嘗試令人分辨出這不是由 CMS 寫出來的網站，不過看起來不容易。而且很多 CMS 做的網站更漂亮 -,-"
 						</p>
 					</div>
-					
+
 					<div class="page-about-me">
 						<p class="en">
 							Hi~it's my pleasure to introduce myself here<br/>
@@ -417,11 +421,11 @@
 							不過我仍相信 web programming 將會引領未來，只是帶領潮流的多數不是香港而已。
 						</p>
 					</div>
-					
+
 					<div class="page-profolio">
 						<p>Under building</p>
 					</div>
-					
+
 					<div class="page-nyaNotifier">
 						<p class="en">This is my first Chrome extension, because it meets exactly what users need, it has got very positive feedback</p>
 						<p class="tw">
@@ -429,12 +433,14 @@
 							不過用家未必很多，因為此軟件太專門了，只服務少數人。
 						</p>
 					</div>
-					
+
 					<div class="page-changeDetector">
 						<p>Under building</p>
 					</div>
 				</div>
 			</div>
+			<!-- end of dialog wrapper -->
+
 		</div>
 	</aside>
 </body>

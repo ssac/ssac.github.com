@@ -1,47 +1,26 @@
 
 $(document).ready(function() {
-	
+
 	var currentShowPageClass;
-	
-	var changeNavSelectedCssObject = {
-		"background-color":"#4C74C4",
-		"border":"1px solid #4C74C4"
-	};
-	
-	var changeNavUnselectedCssObject = {
-		"background-color": "#EFF0EB",
-		"border": "1px solid white"
-	};
-	
-	var listChangePageClass = [
-		".page-home",
-		".page-about-me",
-		".page-profolio",
-		".page-nyaNotifier",
-		".page-changeDetector"
-	];
-	
-	var listNyaNotifierNavigationClass = [
-		".page-nyaNotifier-desc",
-		".page-nyaNotifier-problem",
-		".page-nyaNotifier-bugs"
-	];
-	
-	$("#change-to-en").click(function() {
-		$(".en").show();
-		$(".tw").hide();
-	});
-	
-	$("#change-to-tw").click(function() {
-		$(".en").hide();
-		$(".tw").show();
-	});
-	
+
+	$('.switch-language').click(function(e) {
+		lang = $(e.currentTarget).data('language')
+
+		if(lang == 'en') {
+			rootClass = 'root-en';
+		}
+		else if (lang == 'tw') {
+			rootClass = 'root-tw';
+		}
+
+		$('body').removeClass('root-en root-tw').addClass(rootClass);
+	})
+
 	$(".accordion-mouseover").accordion({
 		event: "mouseover",
 		autoHeight: false
 	});
-	
+
 	$(".cover-control").hover(
 		function(e) {
 			var selector = $(this).attr("data");
@@ -52,77 +31,31 @@ $(document).ready(function() {
 			$(selector).hide();
 		}
 	);
-	
+
 	// when the navigation of main page mouse-enter
 	$(".change-nav").click(function() {
-	
 		var changePage = $(this).attr("data");
-		
-		if (currentShowPageClass === changePage) {
-			return;
-		}
-		
-		// restore all navigation css
-		$(".change-nav").css(changeNavUnselectedCssObject);
-		$(".change-nav > p").css("color", "#4C74C4");
-	
-		// hide all page
-		for (var i in listChangePageClass) {
-			$(listChangePageClass[i]).hide();
-		}
-		
+		if(currentShowPageClass == changePage) return;
+
+		$('.change-nav').removeClass('selected');
+		$(this).addClass('selected');
+
+		$('.main-wrapper').hide() // hide all page
 		$(changePage).show("slide");
-		$(this).find("p").css("color", "white");
-		$(this).css(changeNavSelectedCssObject);
 		currentShowPageClass = changePage;
 	});
-	
-	$(".change-nav").hover(
-		function(){
-			if (currentShowPageClass === $(this).attr("data")) return;
-		
-			$(this).css(changeNavSelectedCssObject);
-			$(this).find("p").css("color", "white");
-		},
-		
-		function(){
-			if (currentShowPageClass === $(this).attr("data")) return;
-		
-			$(this).css(changeNavUnselectedCssObject);
-			$(this).find("p").css("color", "#4C74C4");
-		}
-	);
-	
+
 	// when the navigation of nyaNotifier clicked
 	$(".nyaNotifier-navigation").click(function(){
-		// hide all page within nyaNotifier page
-		for (var i in listNyaNotifierNavigationClass) {
-			$(listNyaNotifierNavigationClass[i]).hide();
-		}
-		
-		// show the page requested
-		$($(this).attr("data")).show();
+		$('#nyaNotifier-content > div').hide() // hide all page within nyaNotifier page
+		$($(this).attr("data")).show(); // show the page requested
 	});
-	
-	// hide all page
-	for (var i in listChangePageClass) {
-		$(listChangePageClass[i]).hide();
-	}
-	
-	// hide all sub-page in nya-notifier page
-	for (var i in listNyaNotifierNavigationClass) {
-		$(listNyaNotifierNavigationClass[i]).hide();
-	}
-	
-	// by default show english version
-	$(".en").show();
-	$(".tw").hide();
-	
-	// show home page
-	$(".page-home").show();
-	$("#menu > div:eq(0)").css(changeNavSelectedCssObject);
-	$("#menu > div:eq(0) > p").css("color", "white");
+
+	$('.main-wrapper').hide() // hide all page
 	currentShowPageClass = ".page-home";
+	$(currentShowPageClass).show()
+
+	$('#nyaNotifier-content > div').hide()
 	$(".page-nyaNotifier-desc").show();
 
 });
