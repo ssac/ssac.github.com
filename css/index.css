@@ -1,0 +1,466 @@
+﻿
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+body {
+	cursor: pointer;
+	width: 100%;
+	height: 630px;
+	margin: 7px 0px 0px 0px;
+	position: relative;
+	background-color: #EFF0EB
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Comic Sans MS";
+}
+
+ul {
+	margin: 0px 0px 0px 5px;
+	list-style: none;
+}
+
+ul li {
+	font-family: "Comic Sans MS";
+}
+
+aside {
+	width: 1008px;
+	height: 630px;
+}
+
+
+#window {
+	width: 960px;
+	height: 600px;
+	margin: 8px;
+}
+
+#menu {
+	background-color: black;
+	margin-bottom: 10px;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#menu div.nav:hover {
+	border: 1px solid #4C74C4;
+	background-color: #4C74C4;
+}
+
+
+#menu div.nav p:hover {
+	color: white;
+}
+
+
+#menu div.nav {
+	border: 1px solid white;
+	font-size: 18px;
+	margin-right: 10px;
+	margin-left: 10px;
+	height: 30px;
+}
+
+#menu div.nav p {
+	margin: 0px;
+	padding: 5px;
+	color: #4C74C4;
+}
+
+
+#content {
+	width: 960px;
+	height: 440px;
+}
+
+
+#main-wrapper {
+	width: 750px;
+	height: 420px;
+	position: relative;
+}
+
+.main-wrapper{
+	width: 100%;
+	height: 100%;
+}
+
+#cover {
+	height: 96%;
+	border: 10px dotted gray;
+}
+
+#extra-info-wrapper {
+	width: 210px;
+	height: 420px;
+	position: relative;
+}
+
+#extra-info {
+	width: 96%;
+	height: 96%;
+	margin-left: 4%;
+}
+
+#banner {
+	width: 100%;
+	height: 30px;
+	background-color: #9F3618;
+}
+
+#pic-choose {
+	width: 100%;
+	height: 20px;
+}
+
+#dialog-wrapper {
+	width: 100%;
+	height: 160px;
+	position: relative;
+}
+
+#desktop-notifier {
+	position: absolute;
+}
+
+#desktop-notifier-content:before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #554DD8;
+	top: -10px;
+	left: 20px;
+	display: block;
+}
+
+#desktop-notifier-content {
+	background-color: #554DD8;
+	color: white;
+	position: relative;
+	top: 400px;
+	left: 200px;
+}
+
+#desktop-notifier-content p {
+	font-size: 20px;
+	padding: 10px;
+}
+
+#nyaNotifier-banner {
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px solid gray;
+	margin-bottom: 5px;
+}
+
+#nyaNotifier-banner img {
+	max-height: 100%;
+}
+
+#nyaNotifier-content {
+	width: 100%;
+	height: 310px;
+	overflow: auto;
+}
+
+#nyaNotifier-navigation {
+	width: 100%;
+	height: 40px
+}
+
+#nyaNotifier-content {
+	position: relative;
+}
+
+#nyaNotifier-screenshot {
+	width: 180px;
+	height: 300px;
+	margin: auto;
+}
+
+#nyaNotifier-screenshot img {
+	width: 100%;
+	height: 100%;
+}
+
+.nyaNotifier-navigation {
+	margin: 5px;
+	background-color: #498cF5;
+	color: white;
+	padding: 7px;
+}
+
+.nyaNotifier-navigation:hover {
+	color: black;
+}
+
+
+.portrait {
+	width: 140px;
+	height: 140px;
+	/*background-color: green;*/
+	left: 5px;
+	margin-left: 10px;
+	top: 50%;
+	margin-top: -70px;
+	position: absolute;
+	border: 1px solid black;
+}
+
+.portrait img {
+	width: 100%;
+	height: 100%;
+}
+
+#dialog {
+	width: 640px;
+	height: 140px;
+	background-color: #FFD76E;
+	left: 180px;
+	float: left;
+	position: relative;
+	top: 50%;
+	margin-top: -70px;
+	border: 1px solid #FFD76E;
+}
+
+#dialog:before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #FFD76E;
+	left: -10px;
+	top: 30px;
+	display: block;
+}
+
+#home-acer {
+	top: 100px;
+	left: 80px;
+}
+
+#home-desktop {
+	top: 10px;
+	left: 350px;
+}
+
+#home-cup {
+	top: 175px;
+	left: 517px;
+}
+
+#home-hello {
+	top: 95px;
+	left: 629px;
+}
+
+#home-mic {
+	top: 300px;
+	left: 375px;
+}
+
+#home-wine {
+	top: 60px;
+	left: 186px;
+}
+
+#about-me-animation {
+	top: 120px;
+	left: 0px;
+	-webkit-transform: rotate(10deg);
+}
+
+#about-me-drunk {
+	top: 70px;
+	left: 180px;
+	-webkit-transform: rotate(350deg);
+}
+
+#about-me-wow {
+	top: 170px;
+	left: 360px;
+	-webkit-transform: rotate(355deg);
+}
+
+#about-me-coding {
+	top: 140px;
+	left: 520px;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.radius {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.radius-up {
+	-moz-border-radius: 10px 10px 0px 0px;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;
+}
+
+
+.middle {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+
+	display: -moz-box;
+	-moz-box-orient: horizontal;
+	-moz-box-pack: center;
+	-moz-box-align: center;
+
+	display: box;
+	box-orient: horizontal;
+	box-pack: center;
+	box-align: center;
+}
+
+.over-desc {
+	position: absolute;
+	border: 1px solid white;
+}
+
+.over-desc-home {
+	max-width: 120px;
+	background-color: #658EB3;
+}
+
+.over-desc-title p {
+	text-align: center;
+	font-family: "Comic Sans MS";
+	font-size: 12px;
+	color: white;
+}
+
+.over-desc-text p {
+	padding: 5px;
+	font-family: "Comic Sans MS";
+	font-size: 12px;
+	color: white;
+}
+
+.dialog {
+	
+}
+
+.dialog p {
+	font-family: "Comic Sans MS";
+	padding: 8px;
+}
+
+.tips-wrapper {
+	width: 150px;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	border: 1px solid black;
+}
+
+.tips-title {
+	text-align: center;
+}
+
+.tips-content p {
+	padding: 8px;
+}
+
+.rotate-355 {
+	-webkit-transform: rotate(355deg);
+	-moz-transform: rotate(355deg);
+	-o-transform: rotate(355deg);
+	writing-mode: lr-tb;
+}
+
+.box-title {
+	text-align: center;
+	background-color: #d54938;
+	color: white;
+}
+
+.box-content {
+	text-align: center;
+	background-color: white;
+	color: black;
+}
+
+.about-me-intro {
+	width: 180px;
+	height: 220px;
+	float: left;
+	border: 1px solid black;
+	background-color: white;
+	position: absolute;
+}
+
+.about-me-intro-img {
+	width: 160px;
+	height: 100px;
+	background-color: green;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.about-me-intro-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.about-me-intro-text {
+	width: 160px;
+	margin: auto;
+	margin-top: 5px;
+}
+
+.about-me-intro-text p{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.page-nyaNotifier-problem-box {
+	max-width: 80%;
+	border: 1px solid black;
+	margin: 10px;
+}
+
+.page-nyaNotifier-problem-box p {
+	padding: 8px;
+}
+
+.page-nyaNotifier-problem-box-problem {
+	background-color: black;
+	color: white;
+}
+
+.page-nyaNotifier-problem-box-solution {
+}

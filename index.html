@@ -1,8 +1,441 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-	<head>
-		<title>SSAC</title>
-	</head>
-	<body>
-	</body>
+<head>
+	<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+	<script type="text/javascript" src="/js/xml2json.js"></script>
+	<link type="text/css" rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+	<nav id="menu">
+		<div data=".page-home" class="nav middle float-left change-nav rotate-355">
+			<p class="en">HOME</p>
+			<p class="tw">首頁</p>
+		</div>
+		<div data=".page-about-me" class="nav middle float-left change-nav rotate-355">
+			<p class="en">ABOUT ME</p>
+			<p class="tw">鵝是誰</p>
+		</div>
+		<div data=".page-profolio" class="nav middle float-left change-nav rotate-355">
+			<p class="en">PROFOLIO</p>
+			<p class="tw">作品集</p>
+		</div>
+		<div data=".page-nyaNotifier" class="nav middle float-left change-nav rotate-355">
+			<p>nyaNotifier</p>
+		</div>
+		<div data=".page-changeDetector" class="nav middle float-left change-nav rotate-355">
+			<p>changeDetector</p>
+		</div>
+		<div class="nav middle float-right"><p>X</p></div>
+		<div class="nav middle float-right">
+			<p id="change-to-tw" class="en">CHINESE</p>
+			<p id="change-to-en" class="tw">ENGLISH</p>
+		</div>
+	</nav>
+	<aside class="middle">
+		<div id="window" class="radius">
+			<div id="content">
+				<div id="main-wrapper" class="float-left">
+				
+					<div name="home" class="main-wrapper page-home">
+						<div id="home-acer" class="over-desc over-desc-home radius" hidden="hidden">
+							<div class="over-desc-title">
+								<p>2-years Acer</p>
+							</div>
+							<div class="over-desc-text">
+								<p class="en">usually run heavy program</p>
+								<p class="tw">手提電腦</p>
+							</div>
+						</div>
+						<div id="home-desktop" class="over-desc over-desc-home radius" hidden="hidden">
+							<div class="over-desc-title">
+								<p>10-years Frd</p>
+							</div>
+							<div class="over-desc-text">
+								<p class="en">only function is to read document now -,-</p>
+								<p class="tw">人老機械壞，淨係可以用黎上下網，睇下 doc</p>
+							</div>
+						</div>
+						<div id="home-cup" class="over-desc over-desc-home radius" hidden="hidden">
+							<div class="over-desc-title">
+								<p>6-years Cup</p>
+							</div>
+							<div class="over-desc-text">
+								<p class="en">Usually filled with coke=.=</p>
+								<p class="tw">可樂專用杯</p>
+							</div>
+						</div>
+						<div id="home-hello" class="over-desc over-desc-home" hidden="hidden">
+							<div class="over-desc-title">
+								<p>^^"</p>
+							</div>
+						</div>
+						<div id="home-mic" class="over-desc over-desc-home radius" hidden="hidden">
+							<div class="over-desc-title">
+								<p>mic</p>
+							</div>
+							<div class="over-desc-text">
+								<p class="en">LOL helper</p>
+								<p class="tw">LOL 好幫手</p>
+							</div>
+						</div>
+						<div id="home-wine" class="over-desc over-desc-home radius" hidden="hidden">
+							<div class="over-desc-title">
+								<p>wine</p>
+							</div>
+							<div class="over-desc-text">
+								<p>38%</p>
+							</div>
+						</div>
+						
+						<div id="desktop-notifier">
+							<div id="desktop-notifier-triangle"></div>
+							<div id="desktop-notifier-content" class="radius">
+								<p class="en">My Desktop</p>
+								<p class="tw">我的桌面</p>
+							</div>
+						</div>
+						
+						<img id="cover" class="radius" src="/rs/img/cover2.jpg" usemap="#cover-control"/>
+						<map name="cover-control">
+							<area shape="rect" coords="0,145,275,365" data="#home-acer" class="cover-control" />
+							<area shape="rect" coords="255,80,560,245" data="#home-desktop" class="cover-control" /> 
+							<area shape="rect" coords="500,260,636,370" data="#home-cup" class="cover-control" />
+							<area shape="rect" coords="666,80,731,125" data="#home-hello" class="cover-control" />
+							<area shape="rect" coords="367,340,432,370" data="#home-mic" class="cover-control" />
+							<area shape="rect" coords="95,35,158,130" data="#home-wine" class="cover-control" />
+						</map>
+						
+					</div>
+					
+					<div name="about-me" class="main-wrapper page-about-me">
+						<div id="about-me-animation" class="about-me-intro">
+							<div class="about-me-intro-img">
+								<img src="/rs/img/animation.jpg">
+							</div>
+							<div class="about-me-intro-text">
+								<p class="en">I used to watch animation, but I haven't watched that for 10 years...</p>
+								<p class="tw">小時候很喜歡看卡通片，但我已經十年以上沒看了…</p>
+							</div>
+						</div>
+						<div id="about-me-drunk" class="about-me-intro">
+							<div class="about-me-intro-img">
+								<img src="/rs/img/drunk.jpg">
+							</div>
+							<div class="about-me-intro-text">
+								<p class="en">I used to drink, but I haven't drunk for 3 years...</p>
+								<p class="tw">年青時（喂！）喜歡飲酒，但我已經三年沒飲過了…</p>
+							</div>
+						</div>
+						<div id="about-me-wow" class="about-me-intro">
+							<div class="about-me-intro-img">
+								<img src="/rs/img/wow.jpg">
+							</div>
+							<div class="about-me-intro-text">
+								<p class="en">I used to play WOW days and nights, but I haven't played for 6 years...</p>
+								<p class="tw">中學時沉迷玩魔獸世界，但我已經六年沒開過這遊戲了…</p>
+							</div>
+						</div>
+						<div id="about-me-coding" class="about-me-intro">
+							<div class="about-me-intro-img">
+								<img src="/rs/img/coding.jpg">
+							</div>
+							<div class="about-me-intro-text">
+								<p class="en">I enjoyed coding over night, and I am still enjoying it, for 5 years!</p>
+								<p class="tw">享受深夜寫 code, 我一直享受著，五年了！</p>
+							</div>
+						</div>
+					</div>
+					
+					<div name="profolio" class="main-wrapper page-profolio middle">
+						<div>
+							<p class="en">Implement this page later after I leave / got fired of current job -,-</p>
+							<p class="tw">遲點才寫（才多點東西寫，喂！）</p>
+						</div>
+					</div>
+					
+					<div name="nyaNotifier" class="main-wrapper page-nyaNotifier">
+						<div id="nyaNotifier-banner">
+							<img src="/rs/img/nya.notifier.banner.png">
+						</div>
+						<div id="nyaNotifier-content">
+							<div class="page-nyaNotifier-desc">
+								<p>
+									[important1] This is not a cheating script,<br/>
+									[important2] This is a web game call "Nobanyaga" dedicated<br/>
+									[important3] You are only allowed to open only one game page<br/>
+									[installation link] <a href="https://chrome.google.com/webstore/detail/oeocjccojaaoejnphdledmkpjmnkflfi" target="_blank">Click me</a><br/>
+									[notify user when]
+									<ul>
+										<li>Voice notification</li>
+										<li>No Building Construction</li>
+										<li>No Preparing Construction<li>
+										<li>Skill Factory Available</li>
+										<li>Soak Available</li>
+										<li>Food Over 90%</li>
+										<li>Fight / Battle Available</li>
+									</ul>
+								</p>
+							</div>
+							<div class="page-nyaNotifier-problem">
+								<div class="page-nyaNotifier-problem-box">
+									<div class="page-nyaNotifier-problem-box-problem">
+										<p>The extension doesn't work, I ticked the selection, but the selection shows unticked when I re-open the extension.</p>
+									</div>
+									<div class="page-nyaNotifier-problem-box-solution">
+										<p>Update your chrome browser to latest version</p>
+									</div>
+								</div>
+								<div class="page-nyaNotifier-problem-box">
+									<div class="page-nyaNotifier-problem-box-problem">
+										<p>The extension doesn't work after some full-screen tab openned</p>
+									</div>
+									<div class="page-nyaNotifier-problem-box-solution">
+										<p>Click the "reconnect" button of popup window</p>
+									</div>
+								</div>
+							</div>
+							<div class="page-nyaNotifier-bugs">
+								<p>
+									At the beginning, I want to build up a record system making use of google appengine datastore
+									api to collect the bugs reported by users at this page.
+									<br/>
+									After I typed a few of codes, damn it! why don't 
+									I just create a facebook fanspage or whatever familiar webpage, they do better job than
+									me building up from sketch!
+									<br/>
+									<br/>
+									then, if you are japanese user who wants to report bugs, do it in this page:<br/>
+									<a href="http://code-at-night.blogspot.hk/2012/07/nyanotifier-official-webpage.html">
+										http://code-at-night.blogspot.hk/2012/07/nyanotifier-official-webpage.html
+									</a>
+									<br/>
+									<br/>
+									if you can read chinese, you can read more info at this page:<br/>
+									<a href="http://forum.gamer.com.tw/C.php?bsn=19881&snA=13622&subbsn=0&page=1#62424">
+										http://forum.gamer.com.tw/C.php?bsn=19881&snA=13622&subbsn=0&page=1#62424
+									</a>
+								</p>
+							</div>
+						</div>
+						<div id="nyaNotifier-navigation">
+							<div data=".page-nyaNotifier-desc" class="float-left nyaNotifier-navigation radius">
+								<p class="en">What's This</p>
+								<p class="tw">簡介</p>
+							</div>
+							<div data=".page-nyaNotifier-problem" class="float-left nyaNotifier-navigation radius">
+								<p class="en">General Problems</p>
+								<p class="tw">一般問題</p>
+							</div>
+							<div data=".page-nyaNotifier-bugs" class="float-left nyaNotifier-navigation radius">
+								<p class="en">Bugs Report</p>
+								<p class="tw">漏洞回報</p>
+							</div>
+						</div>
+					</div>
+					
+					<div name="changeDetector" class="main-wrapper page-changeDetector middle">
+						<div>
+							<p>Under Development!</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div id="extra-info-wrapper" class="float-left">
+					<div id="extra-info" class="radius">
+						
+						<div class="page-home">
+							<div class="box">
+								<div name="site-info-wrapper">
+									<div class="accordion-mouseover">
+										<div class="box-title">
+											<p>Language Used</p>
+										</div>
+										<div class="box-content">
+											<p>HTML</p>
+											<p>CSS3</p>
+											<p>Javascript</p>
+											<p>Python</p>
+										</div>
+										<div class="box-title">
+											<p>Designer</p>
+										</div>
+										<div class="box-content">
+											<p>nightmail</p>
+										</div>
+										<div class="box-title">
+											<p>Start Date</p>
+										</div>
+										<div class="box-content">
+											<p>2012-07-05</p>
+										</div>
+									</div>
+								</div>
+								<div class="tips-wrapper radius">
+									<div class="tips-title">
+										<p class="en">TIPS</p>
+										<p class="tw">提示</p>
+									</div>
+									<div class="tips-content">
+										<p class="en">Move around the picture and find more info</p>
+										<p class="tw">在圖片上移動有額外資訊哦</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="page-about-me">
+							<div name="page-about-me-box-wrapper" class="accordion-mouseover">
+								<div class="box-title">
+									<p class="en">Name, Nickname</p>
+									<p class="tw">名稱、昵稱</p>
+								</div>
+								<div class="box-content">
+									<p>Sam</p>
+									<p>nightmail</p>
+								</div>
+								<div class="box-title">
+									<p>Find me...</p>
+								</div>
+								<div class="box-content">
+									<p>facebook/suenkating</p>
+									<p>gmail/suenkating</p>
+									<p>ktsun[at]stu.ust.hk</p>
+								</div>
+								<div class="box-title">
+									<p class="en">Proficient Prog. Language</p>
+									<p class="tw">熟手語言</p>
+								</div>
+								<div class="box-content">
+									<p>Javascript, jQuery</p>
+									<p>PHP</p>
+									<p>HTML, CSS</p>
+								</div>
+								<div class="box-title">
+									<p>Prog. Language with Hands-on EXP</p>
+								</div>
+								<div class="box-content">
+									<p>C/C++</p>
+									<p>JAVA, ANDROID SDK</p>
+									<p>SQL</p>
+									<p>C#.NET</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="page-profolio"></div>
+						
+						<div class="page-nyaNotifier">
+							<div name="page-nyaNotifier-box-wrapper" class="accordion-mouseover">
+								<div class="box-title">
+									<p class="en">Software Type</p>
+									<p class="tw">程式類別</p>
+								</div>
+								<div class="box-content">
+									<p>Google Chrome Extension</p>
+								</div>
+								<div class="box-title">
+									<p class="en">Language Used</p>
+									<p class="tw">使用語言</p>
+								</div>
+								<div class="box-content">
+									<p>Javascript, jQuery</p>
+									<p>HTML</p>
+									<p>CSS</p>
+								</div>
+								<div class="box-title">
+									<p class="en">Publish Date</p>
+									<p class="tw">發佈日期</p>
+								</div>
+								<div class="box-content">
+									<p>2012-06-26</p>
+								</div>
+								<div class="box-title">
+									<p>Screen Shot</p>
+								</div>
+								<div class="box-content">
+									<div id="nyaNotifier-screenshot">
+										<img  src="/rs/img/nya.notifier.png"/>
+									</div>
+								</div>
+							</div>
+						</div>
+												
+					</div>
+				</div>
+				
+				<!-- <div id="pic-choose" class="float-left"></div> -->
+				
+			</div>
+			
+			<div id="dialog-wrapper" class="radius">
+			
+				<div class="portrait">
+					<div class="page-home">
+						<img src="/rs/img/me.png">
+					</div>
+					<div class="page-about-me">
+						<img src="/rs/img/me.happy.png">
+					</div>
+					<div class="page-profolio">
+						<img src="/rs/img/me.confuse.png">
+					</div>
+					<div class="page-nyaNotifier">
+						<img src="/rs/img/me.smile.png">
+					</div>
+					<div class="page-changeDetector">
+						<img src="/rs/img/me.confuse.png">
+					</div>
+				</div>
+				<!-- <div id="dialog-triangle"></div> -->
+				<div id="dialog" class="dialog radius">
+				
+					<div class="page-home">
+						<p class="en">
+							This is my personal website. Technically, I tried to present this site in more personal way, 
+							for making this site different from CMS-made website. However, it seems failed (honestly speaking
+							, some CMS themes look even better in graphic design...).
+							<br/>
+						</p>
+						<p class="tw">
+							嘗試令人分辨出這不是由 CMS 寫出來的網站，不過看起來不容易。而且很多 CMS 做的網站更漂亮 -,-"
+						</p>
+					</div>
+					
+					<div class="page-about-me">
+						<p class="en">
+							Hi~it's my pleasure to introduce myself here<br/>
+							I'm a minimalist, web programmer who believe that web is the future.
+							Web programming may not be prosperous in Hong Kong, but I am sure it will lead
+							the world somehow by someone in somewhere.
+						</p>
+						<p class="tw">
+							我是個簡約主義者，所以這有點花巧的網站並不是我終極追求的的形式。<br/>
+							香港的 web programming 很難發揮，有創意的公司不多，多數輪為幫人寫網站的。
+							不過我仍相信 web programming 將會引領未來，只是帶領潮流的多數不是香港而已。
+						</p>
+					</div>
+					
+					<div class="page-profolio">
+						<p>Under building</p>
+					</div>
+					
+					<div class="page-nyaNotifier">
+						<p class="en">This is my first Chrome extension, because it meets exactly what users need, it has got very positive feedback</p>
+						<p class="tw">
+							我知道此程式會受歡迎的，因為我自己是用家，知道很實用，市場上又沒有類似的軟件。<br/>
+							不過用家未必很多，因為此軟件太專門了，只服務少數人。
+						</p>
+					</div>
+					
+					<div class="page-changeDetector">
+						<p>Under building</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</aside>
+</body>
 </html>
