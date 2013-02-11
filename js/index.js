@@ -3,8 +3,23 @@ $(document).ready(function() {
 
 	var currentShowPageClass;
 
+	function switchPage = (pageClass, isSlide){
+		$('.page-home, .page-about-me, .page-profolio, .page-nyaNotifier, .page-changeDetector').hide()
+
+		if(pageClass){
+			if(isSlide){
+				$(pageclass).show('slide');
+			}
+			else{
+				$(pageClass).show();
+			}
+
+			currentShowPageClass = pageClass;
+		}
+	}
+
 	$('.switch-language').click(function(e) {
-		lang = $(e.currentTarget).data('language')
+		lang = $(this).attr('data')
 
 		if(lang == 'en') {
 			rootClass = 'root-en';
@@ -40,9 +55,7 @@ $(document).ready(function() {
 		$('.change-nav').removeClass('selected');
 		$(this).addClass('selected');
 
-		$('.main-wrapper').hide() // hide all page
-		$(changePage).show("slide");
-		currentShowPageClass = changePage;
+		switchPage(changePage);
 	});
 
 	// when the navigation of nyaNotifier clicked
@@ -51,9 +64,7 @@ $(document).ready(function() {
 		$($(this).attr("data")).show(); // show the page requested
 	});
 
-	$('.main-wrapper').hide() // hide all page
-	currentShowPageClass = ".page-home";
-	$(currentShowPageClass).show()
+	switchPage('.page-home');
 
 	$('#nyaNotifier-content > div').hide()
 	$(".page-nyaNotifier-desc").show();
