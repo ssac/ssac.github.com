@@ -45,6 +45,7 @@ ul li {
 aside {
 	width: 1008px;
 	height: 630px;
+	margin: 20px auto 0;
 }
 
 
@@ -59,6 +60,7 @@ aside {
 	margin-bottom: 10px;
 	margin: 0px;
 	padding: 0px;
+	overflow: hidden;
 }
 
 #menu div.change-nav.selected {
